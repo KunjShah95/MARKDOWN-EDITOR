@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Resizable } from "@/components/ui/resizable";
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 import MarkdownPreview from "./MarkdownPreview";
 import CodeEditor from "./CodeEditor";
 
@@ -53,15 +53,15 @@ console.log(greeting('world'));
       </header>
       
       <div className="flex-grow overflow-hidden">
-        <Resizable direction="horizontal" className="h-full">
-          <Resizable.Panel defaultSize={50} minSize={30} className="h-full">
+        <ResizablePanelGroup direction="horizontal" className="h-full">
+          <ResizablePanel defaultSize={50} minSize={30} className="h-full">
             <CodeEditor value={markdown} onChange={handleChange} />
-          </Resizable.Panel>
-          <Resizable.Handle withHandle />
-          <Resizable.Panel defaultSize={50} className="h-full">
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          <ResizablePanel defaultSize={50} className="h-full">
             <MarkdownPreview markdown={markdown} />
-          </Resizable.Panel>
-        </Resizable>
+          </ResizablePanel>
+        </ResizablePanelGroup>
       </div>
     </div>
   );
